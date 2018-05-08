@@ -1,3 +1,8 @@
 express.pid
 .idea
 node_modules
+/package-lock.json
+/.vs/VSWorkspaceState.json
+/.vs/slnx.sqlite
+/.vs/poker-player-pocketrockets/v15/.suo
+/.vs/config/applicationhost.config

@@ -72,6 +72,7 @@ request(options, function (error, response, body) {
       console.log(JSON.stringify(communityCards));
       let suitsMyCards = [];
       let suitsCommunitycards = [];
+      let myCardSuitesEqual = false;
 
       myCards.forEach(card => {
         suitsMyCards.push(card.suit);
@@ -81,12 +82,30 @@ request(options, function (error, response, body) {
         suitsCommunitycards.push(card.suit);
         console.log('community card: ' + JSON.stringify(card));
       });
-      if(suitsCommunitycards.length >=3){
+      if(suitsMyCards[0] == suitsMyCards[1]){
+        myCardSuitesEqual = true;
+      }
+      if(suitsCommunitycards.length >=3 && myCardSuitesEqual){
+        console.log('myCards equal suites');
         suitsMyCards.forEach(suit => {
           let numSuits = 0;
           numSuits = countInArray(suitsCommunitycards, suit);
           console.log('suit: '+ suit + ' occurs ' + numSuits + ' times in community cards' )
+          if(numSuites >=3){
+            console.log('### flush');
+          }
         });
+      } else {
+        console.log('myCards no equal suites');
+        suitsMyCards.forEach(suit => {
+          let numSuits = 0;
+          numSuits = countInArray(suitsCommunitycards, suit);
+          console.log('suit: '+ suit + ' occurs ' + numSuits + ' times in community cards' )
+          if(numSuites >=4){
+            console.log('### flush');
+          }
+        });
+
       }
 
     } catch(error){

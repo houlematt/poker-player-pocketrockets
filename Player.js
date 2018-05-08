@@ -23,6 +23,10 @@ class Player {
     return false;
   }
 
+  static haveAnyPair(communityCards, myCards){
+
+  }
+
   static betRequest(gameState, bet) {
 
     console.log(gameState);

@@ -142,7 +142,7 @@ class Player {
     // }
 
     this.haveFlush(gameState.community_cards, myCards);
-    bet(howMuchShouldIBet);
+        bet(Math.round(howMuchShouldIBet));
 
   } catch(error){
     console.log('we have an error: ' + error);

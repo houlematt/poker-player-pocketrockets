@@ -180,7 +180,7 @@ class Player {
       }else if (this.isPreFlop(gameState.community_cards)){
         howMuchShouldIBet = myStack / 10;
       }
-    } else if(this.haveFlush(gameState.community_cards, myCards) > 3){
+    } else if(this.haveFlush(gameState.community_cards, myCards) >= 3){
       let nearFlush = this.haveFlush(gameState.community_cards, myCards) 
       if(nearFlush == 5){
         console.log('have a flush');

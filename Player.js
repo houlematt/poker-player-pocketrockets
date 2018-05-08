@@ -9,8 +9,8 @@ class Player {
     bet(gameState.current_buy_in + 10);
 
 
-    let myCards = gameState.players.PocketRockets.hole_cards;
-    console.log(myCards);
+    // let myCards = gameState.players.PocketRockets.hole_cards;
+    // console.log(myCards);
 
   }
 

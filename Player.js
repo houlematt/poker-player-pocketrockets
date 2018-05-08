@@ -31,7 +31,7 @@ class Player {
 
 var options = { 
     method: 'POST',
-    url: 'https:// poker-1721.restdb.io/rest/games',
+    url: 'https://poker-1721.restdb.io/rest/games',
     headers: 
     {   'cache-control': 'no-cache',
         'x-apikey': 'fdbae10e99aa9814474124823a0a058cb9973',

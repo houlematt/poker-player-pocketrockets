@@ -60,6 +60,16 @@ class Player {
     }
     return false;
   }
+
+  static isPreFlop(community_cards){
+    if (community_cards.length == 0){
+      return true;
+    }
+    return false;
+  }
+
+
+
   static betRequest(gameState, bet) {
 
     try {
@@ -78,20 +88,28 @@ class Player {
 
     let howMuchShouldIBet = 0;
 
+    // if(gameState.minimum_raise > 0)
+
     if(this.isPair(myCards)){
       if(this.highPair(myCards)){
-
         howMuchShouldIBet = myStack;
-      }else {
+      }else if (isPreFlop(gameState.community_cards)){
         howMuchShouldIBet = myStack / 4;
       }
-    } else if(this.isSameSuit(myCards)){
+    } else if(this.isSameSuit(myCards) && isPreFlop(gameState.community_cards)){
       console.log('isSameSuit found');
       howMuchShouldIBet = gameState.minimum_raise;
     } else if(this.haveAnyPair(gameState.community_cards, myCards)){
       console.log('haveAnyPair found');
       howMuchShouldIBet = gameState.minimum_raise;
     }
+
+
+    // if(!this.isPreFlop(gameState.community_cards)){
+    //   if(gameState.in_action > 0){
+
+    //   }
+    // }
 
     this.haveFlush(gameState.community_cards, myCards);
     bet(howMuchShouldIBet);

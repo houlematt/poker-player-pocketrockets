@@ -9,5 +9,5 @@ pre-flop
 post flop:
 - look how many people how reacted at pre-flop
 - decide at the mathematics table
-- good card => agressive re-rase
+- good card => agressive re-raise if the others raise
 - otherwise => raise little 

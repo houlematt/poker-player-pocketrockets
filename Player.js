@@ -176,6 +176,9 @@ class Player {
       }else if (this.isPreFlop(gameState.community_cards)){
         howMuchShouldIBet = myStack / 10;
       }
+    } else if(this.haveFlush(gameState.community_cards, myCards)){
+      console.log('have a flush');
+      howMuchShouldIBet = gameState.minimum_raise * 3;
     } else if(this.isPreFlop(gameState.community_cards) && highCard(myCards) && gameState.bet_index < 10){
         if(gameState.minimum_raise < 100){
           howMuchShouldIBet = gameState.minimum_raise * 2;
@@ -189,10 +192,7 @@ class Player {
     } else if(this.haveAnyPair(gameState.community_cards, myCards)){
       console.log('haveAnyPair found');
       howMuchShouldIBet = gameState.minimum_raise;
-    } else if(this.haveFlush(gameState.community_cards, myCards)){
-    console.log('have a flush');
-    howMuchShouldIBet = gameState.minimum_raise * 3;
-    }
+    } 
 
 
     console.log('\r\n \r\n', howMuchShouldIBet)
@@ -204,7 +204,7 @@ class Player {
     // }
 
     // this.haveFlush(gameState.community_cards, myCards);
-    this.writeGame(gameState);
+    // this.writeGame(gameState);
         bet(Math.round(howMuchShouldIBet));
 
   } catch(error){

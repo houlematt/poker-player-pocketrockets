@@ -29,6 +29,10 @@ class Player {
 
   static betRequest(gameState, bet) {
 
+    try{
+
+    
+
     console.log(gameState);
 
     let myCards = '',
@@ -52,6 +56,11 @@ class Player {
     }
 
     bet(howMuchShouldIBet);
+
+  } catch(error){
+    console.log('we have an error: ' + error);
+    bet(10);
+  }
 
   }
 

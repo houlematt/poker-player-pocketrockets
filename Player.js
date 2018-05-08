@@ -69,10 +69,12 @@ class Player {
   }
 
   static highPair(myCards){
-    let valuableCards = [10,"J","Q","K","A"];
+    let valuableCards = ["10","J","Q","K","A"];
     if(valuableCards.indexOf(myCards[0].rank) != -1){
+      console.log('high pair');
       return true;
     }
+    console.log('not high pair');
     return false;
   }
 

@@ -9,7 +9,7 @@ class Player {
     bet(gameState.current_buy_in + 10);
 
     let myCards = '';
-    for (step = 0; step < 4; step++) {
+    for (var step = 0; step < 4; step++) {
       if (gameState.players[step].name==='PocketRockets') {
         myCards = gameState.players[step].hole_cards;
         console.info('myCards', myCards);

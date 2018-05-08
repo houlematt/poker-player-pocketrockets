@@ -37,7 +37,7 @@ class Player {
   }
   static haveFlush(communityCards, myCards){
     try{
-      myCards.array.forEach(myCard => {
+      myCards.forEach(myCard => {
         console.log('myCard: ' + myCard);
       });
     } catch(error){

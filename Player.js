@@ -124,7 +124,7 @@ class Player {
       }else if (this.isPreFlop(gameState.community_cards)){
         howMuchShouldIBet = myStack / 4;
       }
-    } else if(this.isPreFlop(gameState.community_cards) && highCard(myCards)){
+    } else if(this.isPreFlop(gameState.community_cards) && highCard(myCards) && gameState.bet_index < 10){
       howMuchShouldIBet = gameState.minimum_raise * 2;
     } else if(this.isSameSuit(myCards) && this.isPreFlop(gameState.community_cards)){
       console.log('isSameSuit found');

@@ -41,12 +41,13 @@ class Player {
       console.log(JSON.stringify(myCards));
       console.log(JSON.stringify(communityCards));
 
-      myCards.forEach(myCard => {
-        console.log(JSON.stringify(myCard));
-        myCard.forEach(card => {
-          console.log('myCard: ' + card);
-        })
+      myCards.forEach(card => {
+        console.log('my card: ' + card);
       });
+      communityCards.forEach(card => {
+        console.log('community card: ' + card);
+      });
+
     } catch(error){
       console.log('has flush error: '+ error);
     }

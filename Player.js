@@ -14,6 +14,15 @@ class Player {
     return false;
   }
 
+  static isSameSuit(cards){
+    if(cards.length==2){
+      if(cards[0].suit == cards[1].suit){
+        return true;
+      }
+    }
+    return false;
+  }
+
   static betRequest(gameState, bet) {
 
     console.log(gameState);
@@ -31,9 +40,12 @@ class Player {
     let howMuchShouldIBet = 0;
 
     if(this.isPair(myCards)){
-      howMuchShouldIBet = myStack;
+      howMuchShouldIBet = gameState.minimum_raise;
     }
-
+    
+    if(this.isSameSuit(myCards)){
+      howMuchShouldIBet = gameState.minimum_raise;
+    }
 
     bet(howMuchShouldIBet);
 

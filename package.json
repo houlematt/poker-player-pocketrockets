@@ -9,5 +9,8 @@
   "dependencies": {
     "express": "4.x",
     "body-parser": "1.15.2"
+  },
+  "devDependencies": {
+    "request": "^2.85.0"
   }
 }

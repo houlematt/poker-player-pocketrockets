@@ -87,7 +87,7 @@ class Player {
         myCardSuitesEqual = true;
       }
       if(suitsCommunitycards.length >=3 && myCardSuitesEqual){
-        console.log('myCards equal suites');
+        console.log('myCards equal suites and more then 3 community cards');
         suitsMyCards.forEach(suit => {
           let numSuits = 0;
           numSuits = countInArray(suitsCommunitycards, suit);
@@ -97,8 +97,8 @@ class Player {
             hasFlush = true;
           }
         });
-      } else {
-        console.log('myCards no equal suites');
+      } else if(suitsCommunitycards.length >=4) {
+        console.log('myCards no equal suites and more then 4 community cards');
         suitsMyCards.forEach(suit => {
           let numSuits = 0;
           numSuits = countInArray(suitsCommunitycards, suit);
@@ -109,6 +109,8 @@ class Player {
           }
         });
 
+      } else {
+        
       }
       return hasFlush;
 

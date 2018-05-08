@@ -42,10 +42,10 @@ class Player {
       console.log(JSON.stringify(communityCards));
 
       myCards.forEach(card => {
-        console.log('my card: ' + card);
+        console.log('my card: ' + JSON.stringify(card));
       });
       communityCards.forEach(card => {
-        console.log('community card: ' + card);
+        console.log('community card: ' + JSON.stringify(card));
       });
 
     } catch(error){

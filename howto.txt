@@ -1,0 +1,13 @@
+generallly:
+- be in 25% of the hands (including the strong cards)
+
+pre-flop
+
+- bad cards, still call in 25% of time
+- good cards, raise
+
+post flop:
+- look how many people how reacted at pre-flop
+- decide at the mathematics table
+- good card => agressive re-rase
+- otherwise => raise little 

@@ -41,6 +41,7 @@ class Player {
       console.log(JSON.stringify(communityCards));
 
       myCards.forEach(myCard => {
+        console.log(JSON.stringify(myCard));
         myCard.forEach(card => {
           console.log('myCard: ' + card);
         })

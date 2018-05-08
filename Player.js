@@ -51,7 +51,7 @@ class Player {
         console.log('my card: ' + JSON.stringify(card));
       });
       communityCards.forEach(card => {
-        suitsMyCards.push(card.suit);
+        suitsCommunitycards.push(card.suit);
         console.log('community card: ' + JSON.stringify(card));
       });
       if(suitsCommunitycards.length >=3){

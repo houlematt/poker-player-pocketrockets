@@ -3,7 +3,7 @@ generallly:
 
 pre-flop
 
-- bad cards, still call in 25% of time
+- bad cards, 
 - good cards, raise
 
 post flop:

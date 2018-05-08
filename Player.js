@@ -158,7 +158,9 @@ request(options, function (error, response, body) {
         }
     } else if(this.isSameSuit(myCards) && this.isPreFlop(gameState.community_cards)&& gameState.bet_index < 10){
       console.log('isSameSuit found');
-      howMuchShouldIBet = gameState.minimum_raise;
+      if(gameState.minimum_raise < 100){
+        howMuchShouldIBet = gameState.minimum_raise * 2;
+      }
     } else if(this.haveAnyPair(gameState.community_cards, myCards)){
       console.log('haveAnyPair found');
       howMuchShouldIBet = gameState.minimum_raise;

@@ -24,7 +24,16 @@ class Player {
   }
 
   static haveAnyPair(communityCards, myCards){
-
+    for (let i = 0; i < communityCards.length; i++) {
+      let cCard = communityCards[i];
+      for (let k = 0; k < myCards.length; k++) {
+        let mCard = myCards[k];
+        if ( cCard.rank===mCard.rank ) {
+          return true
+        }
+      }
+    }
+    return false;
   }
 
   static betRequest(gameState, bet) {
@@ -52,6 +61,10 @@ class Player {
     }
     
     if(this.isSameSuit(myCards)){
+      howMuchShouldIBet = gameState.minimum_raise;
+    }
+
+    if(this.haveAnyPair(gameState.community_cards, myCards)){
       howMuchShouldIBet = gameState.minimum_raise;
     }
 

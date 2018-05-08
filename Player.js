@@ -4,8 +4,14 @@ class Player {
   }
 
   static betRequest(gameState, bet) {
+
     console.log(gameState);
-    bet(10);
+    bet(gameState.current_buy_in + 10);
+
+
+    // let myCards = gameState.players.PocketRockets.hole_cards;
+    // console.log(myCards);
+
   }
 
   static showdown(gameState) {

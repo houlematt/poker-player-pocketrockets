@@ -95,6 +95,8 @@ class Player {
           if(numSuits >=3){
             console.log('### flush');
             hasFlush = 5;
+          } else if(numSuits >=1){
+            hasFlush = 2+ numSuits;
           }
         });
       } else if(suitsCommunitycards.length >=4) {
@@ -106,6 +108,8 @@ class Player {
           if(numSuits >=4){
             console.log('### flush');
             hasFlush = 5;
+          } else if(numSuits >=1){
+            hasFlush = 1+ numSuits;
           }
         });
 
@@ -181,6 +185,8 @@ class Player {
       if(nearFlush == 5){
         console.log('have a flush');
         howMuchShouldIBet = gameState.minimum_raise * 3;
+      } else if (nearFlush >= 3){
+        howMuchShouldIBet = gameState.minimum_raise;
       }
     } else if(this.isPreFlop(gameState.community_cards) && highCard(myCards) && gameState.bet_index < 10){
         if(gameState.minimum_raise < 100){

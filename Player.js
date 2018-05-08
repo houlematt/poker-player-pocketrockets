@@ -1,3 +1,5 @@
+// SUITS: Spades, Hearts, Diamonds, and Clubs// Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack, Queen, King
+
 class Player {
   static get VERSION() {
     return '0.1';
@@ -20,6 +22,34 @@ class Player {
         return true;
       }
     }
+    return false;
+  }
+
+  static haveStraight(communityCards, myCards) {
+
+    // combine hole cards and community cards and sort
+    var sequence = myCards.concat(communityCards);
+    sequence = sequence.sort(function (a, b) { return a - b });
+
+    // holds 5 cards of sequential value
+    var straightSequence = [10];
+
+    for (let i = 0; i <= 5; i++) {
+      var checkValue = sequence[i];      var neighborValue = sequence[i + 1];
+
+      // check for next incremental value in sorted sequence
+      if (neighborValue === (checkValue + 1)) {        console.log("added incremental: " + checkValue);        straightSequence.push(checkValue);
+        console.log("added incremental: " + neighborValue);        straightSequence.push(neighborValue);      } else {        straightSequence = [];        console.log("break incremental");      }      i++;    }
+
+    // get distinct values from straightSequence    var straightSequenceDistinct = [5];
+
+    for (let j = 0; j <= 9; j++) {      var currentSSValue = straightSequence[j];
+
+      if (straightSequenceDistinct.indexOf(currentSSValue) === -1) {        straightSequenceDistinct.push(currentSSValue);      }    }
+
+    // check for 5 cards of sequential value
+    if (straightSequenceDistinct.length === 5) {      return true;    }
+
     return false;
   }
 

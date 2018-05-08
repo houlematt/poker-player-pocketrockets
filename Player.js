@@ -63,7 +63,7 @@ class Player {
     return false;
   }
   static haveFlush(communityCards, myCards){
-    let hasFlush = false;
+    let hasFlush = 0;
     try{
       function countInArray(array, value) {
         return array.reduce((n, x) => n + (x === value), 0);
@@ -73,7 +73,7 @@ class Player {
       console.log(JSON.stringify(communityCards));
       let suitsMyCards = [];
       let suitsCommunitycards = [];
-      let myCardSuitesEqual = false;
+      let myCardSuitesEqual = 0;
 
       myCards.forEach(card => {
         suitsMyCards.push(card.suit);
@@ -94,7 +94,7 @@ class Player {
           console.log('suit: '+ suit + ' occurs ' + numSuits + ' times in community cards' )
           if(numSuits >=3){
             console.log('### flush');
-            hasFlush = true;
+            hasFlush = 5;
           }
         });
       } else if(suitsCommunitycards.length >=4) {
@@ -105,7 +105,7 @@ class Player {
           console.log('suit: '+ suit + ' occurs ' + numSuits + ' times in community cards' )
           if(numSuits >=4){
             console.log('### flush');
-            hasFlush = true;
+            hasFlush = 5;
           }
         });
 
@@ -176,9 +176,12 @@ class Player {
       }else if (this.isPreFlop(gameState.community_cards)){
         howMuchShouldIBet = myStack / 10;
       }
-    } else if(this.haveFlush(gameState.community_cards, myCards)){
-      console.log('have a flush');
-      howMuchShouldIBet = gameState.minimum_raise * 3;
+    } else if(this.haveFlush(gameState.community_cards, myCards) > 0){
+      let nearFlush = this.haveFlush(gameState.community_cards, myCards) 
+      if(nearFlush == 5){
+        console.log('have a flush');
+        howMuchShouldIBet = gameState.minimum_raise * 3;
+      }
     } else if(this.isPreFlop(gameState.community_cards) && highCard(myCards) && gameState.bet_index < 10){
         if(gameState.minimum_raise < 100){
           howMuchShouldIBet = gameState.minimum_raise * 2;

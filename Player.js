@@ -22,6 +22,33 @@ class Player {
     }
     return false;
   }
+  // remember gameState
+  static writeGame(gameState){
+    try{
+
+    
+    var request = require("request");
+
+var options = { 
+    method: 'POST',
+    url: 'https:// poker-1721.restdb.io/rest/games',
+    headers: 
+    {   'cache-control': 'no-cache',
+        'x-apikey': 'fdbae10e99aa9814474124823a0a058cb9973',
+        'content-type': 'application/json' },
+    body: { game_id: gameState.game_id, rounds: '1' },
+    json: true 
+};
+
+request(options, function (error, response, body) {
+    if (error) throw new Error(error);
+    console.log(body);
+});
+    } catch(error){
+      console.log('writeGame: ' + error)
+
+    }
+  }
 
   static haveAnyPair(communityCards, myCards){
     for (let i = 0; i < communityCards.length; i++) {
@@ -142,6 +169,7 @@ class Player {
     // }
 
     this.haveFlush(gameState.community_cards, myCards);
+    this.writeGame(gameState);
         bet(Math.round(howMuchShouldIBet));
 
   } catch(error){

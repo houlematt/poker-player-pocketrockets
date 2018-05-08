@@ -37,8 +37,13 @@ class Player {
   }
   static haveFlush(communityCards, myCards){
     try{
+      console.log(JSON.stringify(myCards));
+      console.log(JSON.stringify(communityCards));
+
       myCards.forEach(myCard => {
-        console.log('myCard: ' + myCard);
+        myCard.forEach(card => {
+          console.log('myCard: ' + card);
+        })
       });
     } catch(error){
       console.log('has flush error: '+ error);

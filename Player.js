@@ -51,6 +51,13 @@ class Player {
     return false;
   }
 
+  static highPair(myCards){
+    let valuableCards = [10,"J","Q","K","A"];
+    if(valuableCards.indexOf(myCards[0].rank) != -1){
+      return true;
+    }
+    return false;
+  }
   static betRequest(gameState, bet) {
 
     try {
@@ -70,17 +77,16 @@ class Player {
     let howMuchShouldIBet = 0;
 
     if(this.isPair(myCards)){
-      console.log('isPair found');
-      howMuchShouldIBet = myStack / 2;
+      if(this.highPair(myCards)){
 
-    }
-    
-    if(this.isSameSuit(myCards)){
+        howMuchShouldIBet = myStack;
+      }else {
+        howMuchShouldIBet = myStack / 4;
+      }
+    } else if(this.isSameSuit(myCards)){
       console.log('isSameSuit found');
       howMuchShouldIBet = gameState.minimum_raise;
-    }
-
-    if(this.haveAnyPair(gameState.community_cards, myCards)){
+    } else if(this.haveAnyPair(gameState.community_cards, myCards)){
       console.log('haveAnyPair found');
       howMuchShouldIBet = gameState.minimum_raise;
     }

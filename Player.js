@@ -29,7 +29,7 @@ class Player {
       for (let k = 0; k < myCards.length; k++) {
         let mCard = myCards[k];
         if ( cCard.rank===mCard.rank ) {
-          return true
+          return true;
         }
       }
     }
@@ -38,9 +38,7 @@ class Player {
 
   static betRequest(gameState, bet) {
 
-    try{
-
-    
+    try {
 
     console.log(gameState);
 
@@ -57,14 +55,17 @@ class Player {
     let howMuchShouldIBet = 0;
 
     if(this.isPair(myCards)){
+      console.log('isPair found');
       howMuchShouldIBet = gameState.minimum_raise;
     }
     
     if(this.isSameSuit(myCards)){
+      console.log('isSameSuit found');
       howMuchShouldIBet = gameState.minimum_raise;
     }
 
     if(this.haveAnyPair(gameState.community_cards, myCards)){
+      console.log('haveAnyPair found');
       howMuchShouldIBet = gameState.minimum_raise;
     }
 
@@ -78,6 +79,13 @@ class Player {
   }
 
   static showdown(gameState) {
+    try{
+
+      console.log('##########show down: ');
+      console.log(gameState)
+    } catch(error){
+    console.log('we have an error: ' + error);
+  }
   }
 }
 

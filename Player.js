@@ -12,7 +12,7 @@ class Player {
     for (step = 0; step < 4; step++) {
       if (gameState.players[step].name==='PocketRockets') {
         myCards = gameState.players[step].hole_cards;
-        console.log(myCards);
+        console.info('myCards', myCards);
       }
     }
 

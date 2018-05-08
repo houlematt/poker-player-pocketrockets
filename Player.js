@@ -35,6 +35,16 @@ class Player {
     }
     return false;
   }
+  static haveFlush(communityCards, myCards){
+    try{
+      myCards.array.forEach(myCard => {
+        console.log('myCard: ' + myCard);
+      });
+    } catch(error){
+      console.log('has flush error: '+ error);
+    }
+    return false;
+  }
 
   static betRequest(gameState, bet) {
 
@@ -69,6 +79,7 @@ class Player {
       howMuchShouldIBet = gameState.minimum_raise;
     }
 
+    this.haveFlush(gameState.community_cards, myCards);
     bet(howMuchShouldIBet);
 
   } catch(error){

@@ -79,6 +79,13 @@ class Player {
   }
 
   static showdown(gameState) {
+    try{
+
+      console.log('##########show down: ');
+      console.log(gameState)
+    } catch(error){
+    console.log('we have an error: ' + error);
+  }
   }
 }
 

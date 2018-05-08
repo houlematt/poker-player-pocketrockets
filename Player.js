@@ -37,16 +37,30 @@ class Player {
   }
   static haveFlush(communityCards, myCards){
     try{
+      function countInArray(array, value) {
+        return array.reduce((n, x) => n + (x === value), 0);
+      }
       console.log('-- haveFlush --');
       console.log(JSON.stringify(myCards));
       console.log(JSON.stringify(communityCards));
+      let suitsMyCards = [];
+      let suitsCommunitycards = [];
 
       myCards.forEach(card => {
+        suitsMyCards.push(card.suit);
         console.log('my card: ' + JSON.stringify(card));
       });
       communityCards.forEach(card => {
+        suitsMyCards.push(card.suit);
         console.log('community card: ' + JSON.stringify(card));
       });
+      if(suitsCommunitycards.length >=3){
+        suitsMyCards.forEach(suit => {
+          let numSuits = 0;
+          numSuits = countInArray(suitsCommunitycards, suit);
+          console.log('suit: '+ suit + ' occurs ' + numSuits + ' times in community cards' )
+        });
+      }
 
     } catch(error){
       console.log('has flush error: '+ error);

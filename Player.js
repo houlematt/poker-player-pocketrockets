@@ -108,10 +108,10 @@ class Player {
     if(this.isPair(myCards)){
       if(this.highPair(myCards)){
         howMuchShouldIBet = myStack;
-      }else if (isPreFlop(gameState.community_cards)){
+      }else if (this.isPreFlop(gameState.community_cards)){
         howMuchShouldIBet = myStack / 4;
       }
-    } else if(this.isSameSuit(myCards) && isPreFlop(gameState.community_cards)){
+    } else if(this.isSameSuit(myCards) && this.isPreFlop(gameState.community_cards)){
       console.log('isSameSuit found');
       howMuchShouldIBet = gameState.minimum_raise;
     } else if(this.haveAnyPair(gameState.community_cards, myCards)){

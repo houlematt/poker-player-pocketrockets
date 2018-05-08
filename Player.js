@@ -110,7 +110,7 @@ class Player {
         });
 
       } else {
-        
+
       }
       return hasFlush;
 
@@ -189,6 +189,9 @@ class Player {
     } else if(this.haveAnyPair(gameState.community_cards, myCards)){
       console.log('haveAnyPair found');
       howMuchShouldIBet = gameState.minimum_raise;
+    } else if(this.haveFlush(gameState.community_cards, myCards)){
+    console.log('have a flush');
+    howMuchShouldIBet = gameState.minimum_raise * 3;
     }
 
 
@@ -200,7 +203,7 @@ class Player {
     //   }
     // }
 
-    this.haveFlush(gameState.community_cards, myCards);
+    // this.haveFlush(gameState.community_cards, myCards);
     this.writeGame(gameState);
         bet(Math.round(howMuchShouldIBet));
 

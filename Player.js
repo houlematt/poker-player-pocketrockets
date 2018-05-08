@@ -56,7 +56,8 @@ class Player {
 
     if(this.isPair(myCards)){
       console.log('isPair found');
-      howMuchShouldIBet = gameState.minimum_raise;
+      howMuchShouldIBet = myStack / 2;
+
     }
     
     if(this.isSameSuit(myCards)){

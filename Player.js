@@ -29,21 +29,21 @@ class Player {
     
     var request = require("request");
 
-var options = { 
-    method: 'POST',
-    url: 'https://poker-1721.restdb.io/rest/games',
-    headers: 
-    {   'cache-control': 'no-cache',
-        'x-apikey': 'fdbae10e99aa9814474124823a0a058cb9973',
-        'content-type': 'application/json' },
-    body: { game_id: gameState.game_id, rounds: '1' },
-    json: true 
-};
+// var options = { 
+//     method: 'POST',
+//     url: 'https://poker-1721.restdb.io/rest/games',
+//     headers: 
+//     {   'cache-control': 'no-cache',
+//         'x-apikey': 'fdbae10e99aa9814474124823a0a058cb9973',
+//         'content-type': 'application/json' },
+//     body: { game_id: gameState.game_id, rounds: '1' },
+//     json: true 
+// };
 
-request(options, function (error, response, body) {
-    if (error) throw new Error(error);
-    console.log(body);
-});
+// request(options, function (error, response, body) {
+//     if (error) throw new Error(error);
+//     console.log(body);
+// });
     } catch(error){
       console.log('writeGame: ' + error)
 
@@ -63,6 +63,7 @@ request(options, function (error, response, body) {
     return false;
   }
   static haveFlush(communityCards, myCards){
+    let hasFlush = false;
     try{
       function countInArray(array, value) {
         return array.reduce((n, x) => n + (x === value), 0);
@@ -91,8 +92,9 @@ request(options, function (error, response, body) {
           let numSuits = 0;
           numSuits = countInArray(suitsCommunitycards, suit);
           console.log('suit: '+ suit + ' occurs ' + numSuits + ' times in community cards' )
-          if(numSuites >=3){
+          if(numSuits >=3){
             console.log('### flush');
+            hasFlush = true;
           }
         });
       } else {
@@ -101,12 +103,14 @@ request(options, function (error, response, body) {
           let numSuits = 0;
           numSuits = countInArray(suitsCommunitycards, suit);
           console.log('suit: '+ suit + ' occurs ' + numSuits + ' times in community cards' )
-          if(numSuites >=4){
+          if(numSuits >=4){
             console.log('### flush');
+            hasFlush = true;
           }
         });
 
       }
+      return hasFlush;
 
     } catch(error){
       console.log('has flush error: '+ error);

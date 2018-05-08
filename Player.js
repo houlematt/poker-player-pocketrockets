@@ -78,6 +78,17 @@ class Player {
     return false;
   }
 
+  static highCard(myCards){
+      let valuableCards = ["J","Q","K","A"];
+      for (let i = 0; i < myCards.length; i++) {
+        if(valuableCards.indexOf(myCards[0].rank) != -1){
+          console.log('high single');
+          return true;
+        }
+      }
+      return false;
+  }
+
   static isPreFlop(community_cards){
     if (community_cards.length == 0){
       return true;
@@ -107,12 +118,14 @@ class Player {
 
     // if(gameState.minimum_raise > 0)
 
-    if(this.isPair(myCards)){
+     if(this.isPair(myCards)){
       if(this.highPair(myCards)){
         howMuchShouldIBet = myStack;
       }else if (this.isPreFlop(gameState.community_cards)){
         howMuchShouldIBet = myStack / 4;
       }
+    else if(this.isPreFlop(gameState.community_cards) && highCard(myCards)){
+      howMuchShouldIBet = gameState.minimum_raise * 2;
     } else if(this.isSameSuit(myCards) && this.isPreFlop(gameState.community_cards)){
       console.log('isSameSuit found');
       howMuchShouldIBet = gameState.minimum_raise;

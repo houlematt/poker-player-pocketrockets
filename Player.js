@@ -169,17 +169,17 @@ class Player {
     // if(gameState.minimum_raise > 0)
 
      if(this.isPair(myCards)){
-      if(this.highPair(myCards)){
-        howMuchShouldIBet = myStack;
+      if(this.highPair(myCards)&& this.isPreFlop(gameState.community_cards)){
+        howMuchShouldIBet = myStack/8;
       }else if (this.isPreFlop(gameState.community_cards)){
-        howMuchShouldIBet = myStack / 4;
+        howMuchShouldIBet = myStack / 10;
       }
     } else if(this.isPreFlop(gameState.community_cards) && highCard(myCards) && gameState.bet_index < 10){
-
         if(gameState.minimum_raise < 100){
           howMuchShouldIBet = gameState.minimum_raise * 2;
         }
     } else if(this.isSameSuit(myCards) && this.isPreFlop(gameState.community_cards)&& gameState.bet_index < 10){
+
       console.log('isSameSuit found');
       if(gameState.minimum_raise < 100){
         howMuchShouldIBet = gameState.minimum_raise * 2;
@@ -189,6 +189,8 @@ class Player {
       howMuchShouldIBet = gameState.minimum_raise;
     }
 
+
+    console.log('\r\n \r\n', howMuchShouldIBet)
 
     // if(!this.isPreFlop(gameState.community_cards)){
     //   if(gameState.in_action > 0){

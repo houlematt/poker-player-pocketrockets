@@ -37,6 +37,7 @@ class Player {
   }
   static haveFlush(communityCards, myCards){
     try{
+      console.log('-- haveFlush --');
       console.log(JSON.stringify(myCards));
       console.log(JSON.stringify(communityCards));
 

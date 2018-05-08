@@ -176,7 +176,7 @@ class Player {
       }else if (this.isPreFlop(gameState.community_cards)){
         howMuchShouldIBet = myStack / 10;
       }
-    } else if(this.isPreFlop(gameState.community_cards) && highCard(myCards) && gameState.bet_index < 10){
+    } else if(this.isPreFlop(gameState.community_cards) && this.highCard(myCards) && gameState.bet_index < 10){
         if(gameState.minimum_raise < 100){
           howMuchShouldIBet = gameState.minimum_raise * 2;
         }
